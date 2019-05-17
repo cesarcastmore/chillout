@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  @Output('onContador') contar: EventEmitter < number > = new EventEmitter < number > ();
+
+  @Output('onSelect') selectEmitter: EventEmitter < boolean > = new EventEmitter < boolean > ();
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  public clicBoton() {
+    this.contar.emit(1);
+
+  }
+
+
+  public onSelect(){
+  	this.selectEmitter.emit(true);
+
+
   }
 
 }
