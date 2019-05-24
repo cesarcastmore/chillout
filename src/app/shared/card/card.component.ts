@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../model/card';
 import { Header } from '../model/header';
 
@@ -14,24 +14,12 @@ export class CardComponent implements OnInit {
     titulo: 'Este es mi titulo'
   };
 
-  public card: Card = {
-    titulo: 'Titulo 1',
-    contador: 0,
-    nombre: 'cesar',
-    descripcion: 'Esta es la descripcion',
-    header: this.header,
-    body: {
-    	precio: 2312,
-    	marca: 'Mabe',
-    	img: 'www.google.com'
-    }
-  }
+  contadorPadre: number= 0;
+
+  @Input() card: Card;
 
   seleccionado: boolean=false;
-
-
-  public titulo: string = "titulo";
-
+  titulo: string = "titulo";
 
 
 

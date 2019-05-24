@@ -1,7 +1,14 @@
-<div class="card text-center">
-	<app-header [encabezado]="card.header"></app-header>
-	<app-body [body]="card.body"></app-body>
-	<app-footer (onSelect)="seleccionado=$event"></app-footer>
+{{contadorPadre}}
+<div class="card text-center" [ngClass]="{'seleccionado':  seleccionado, 'seleccionado2': contadorPadre > 3 }" [ngStyle]="{
+    'background-color': 'red'
+  }">
+  <app-header [encabezado]="card.header"></app-header>
+  <app-body [body]="card.body"></app-body>
+  <app-footer *ngIf="!(contadorPadre > 2)" [(contador)]="contadorPadre" (onSelect)="seleccionado=$event"></app-footer>
 </div>
-
+<div [ngSwitch]="contadorPadre">
+  <p *ngSwitchCase="1">Uno</p>
+  <p *ngSwitchCase="2">Dos</p>
+  <p *ngSwitchCase="3">Tres</p>
+</div>
 {{seleccionado}}

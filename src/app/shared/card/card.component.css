@@ -1,0 +1,11 @@
+.seleccionado {
+  border-color: red;
+  border: 2px solid red;
+}
+
+
+.seleccionado2 {
+  border-color: green;
+  border: 2px solid green;
+}
+
